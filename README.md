@@ -47,7 +47,8 @@ In return, the Architect provides a clear brief, a working test suite, and forgi
 | 1 | [the-pact](https://github.com/mephistopheles4/the-pact) | The terms themselves: the moves, tiers, lenses and guards every agent works under. Installs as `CLAUDE.md`. |
 | 2 | [grimoire](https://github.com/mephistopheles4/grimoire) | A spellbook of agent skills. The one balloon 4 refers to. |
 | 3 | [stacks](https://github.com/mephistopheles4/stacks) | Local-first reading tracker. Obsidian vault in, 3D bookshelf out. MIT. |
-| 4 | [aymandiab.com](https://aymandiab.com) | The full drawing set. |
+| 4 | [athanor](https://github.com/mephistopheles4/athanor) | Your tests, sealed. Each run in a fresh Linux container with no network, for many agent sessions on one machine. On npm. MIT. |
+| 5 | [aymandiab.com](https://aymandiab.com) | The full drawing set. |
 
 <p align="center">
   <img src="pact-sign.svg" width="888" alt="Signed: the Architect, /s/ Ayman Diab. Countersigned: the Familiar, on every commit, as Co-Authored-By." />
