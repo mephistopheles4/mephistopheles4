@@ -52,6 +52,8 @@ In return, the Architect provides a clear brief, a working test suite, and forgi
 
 ### Schedule C · The familiars
 
+Each familiar is a GitHub App that represents the identity of a coding agent.
+
 <p align="center">
   <img src="agent-activity/halo-homunculus-fill.png" width="240" height="240" alt="Homunculus" />&nbsp;&nbsp;<picture>
     <source media="(prefers-color-scheme: dark)" srcset="agent-activity/mephistos-homunculus-26w-dark.svg" />
