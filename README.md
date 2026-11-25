@@ -50,6 +50,34 @@ In return, the Architect provides a clear brief, a working test suite, and forgi
 | 4 | [athanor](https://github.com/mephistopheles4/athanor) | Your tests, sealed. Each run in a fresh Linux container, for many agent sessions on one machine. On npm. MIT. |
 | 5 | [aymandiab.com](https://aymandiab.com) | The full drawing set. |
 
+### Schedule C · The familiars
+
+Each familiar is a GitHub App that represents the identity of a coding agent.
+
+<p align="center">
+  <img src="agent-activity/halo-homunculus-fill.png" width="240" height="240" alt="Homunculus" />&nbsp;&nbsp;<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="agent-activity/mephistos-homunculus-26w-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="agent-activity/mephistos-homunculus-26w-light.svg" />
+    <img src="agent-activity/mephistos-homunculus-26w-light.svg" width="550" height="240" alt="Homunculus activity over the last 26 weeks" />
+  </picture>
+</p>
+
+<p align="center">
+  <img src="agent-activity/halo-euphorion-fill.png" width="240" height="240" alt="Euphorion" />&nbsp;&nbsp;<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="agent-activity/mephistos-euphorion-26w-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="agent-activity/mephistos-euphorion-26w-light.svg" />
+    <img src="agent-activity/mephistos-euphorion-26w-light.svg" width="550" height="240" alt="Euphorion activity over the last 26 weeks" />
+  </picture>
+</p>
+
+<p align="center">
+  <img src="agent-activity/halo-wagner-fill.png" width="240" height="240" alt="Wagner" />&nbsp;&nbsp;<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="agent-activity/mephistos-wagner-26w-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="agent-activity/mephistos-wagner-26w-light.svg" />
+    <img src="agent-activity/mephistos-wagner-26w-light.svg" width="550" height="240" alt="Wagner activity over the last 26 weeks" />
+  </picture>
+</p>
+
 <p align="center">
   <img src="pact-sign.svg" width="888" alt="Signed: the Architect, /s/ Ayman Diab. Countersigned: the Familiar, on every commit, as Co-Authored-By." />
 </p>
