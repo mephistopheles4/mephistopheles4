@@ -56,25 +56,25 @@ Each familiar is a GitHub App that represents the identity of a coding agent.
 
 <p align="center">
   <img src="agent-activity/halo-homunculus-fill.png" width="240" height="240" alt="Homunculus" />&nbsp;&nbsp;<picture>
-    <source media="(prefers-color-scheme: dark)" srcset="agent-activity/mephistos-homunculus-26w-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="agent-activity/mephistos-homunculus-26w-light.svg" />
-    <img src="agent-activity/mephistos-homunculus-26w-light.svg" width="550" height="240" alt="Homunculus activity over the last 26 weeks" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mephistopheles4/mephistopheles4/generated/agent-activity/mephistos-homunculus-26w-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/mephistopheles4/mephistopheles4/generated/agent-activity/mephistos-homunculus-26w-light.svg" />
+    <img src="https://raw.githubusercontent.com/mephistopheles4/mephistopheles4/generated/agent-activity/mephistos-homunculus-26w-light.svg" width="550" height="240" alt="Homunculus activity over the last 26 weeks" />
   </picture>
 </p>
 
 <p align="center">
   <img src="agent-activity/halo-euphorion-fill.png" width="240" height="240" alt="Euphorion" />&nbsp;&nbsp;<picture>
-    <source media="(prefers-color-scheme: dark)" srcset="agent-activity/mephistos-euphorion-26w-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="agent-activity/mephistos-euphorion-26w-light.svg" />
-    <img src="agent-activity/mephistos-euphorion-26w-light.svg" width="550" height="240" alt="Euphorion activity over the last 26 weeks" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mephistopheles4/mephistopheles4/generated/agent-activity/mephistos-euphorion-26w-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/mephistopheles4/mephistopheles4/generated/agent-activity/mephistos-euphorion-26w-light.svg" />
+    <img src="https://raw.githubusercontent.com/mephistopheles4/mephistopheles4/generated/agent-activity/mephistos-euphorion-26w-light.svg" width="550" height="240" alt="Euphorion activity over the last 26 weeks" />
   </picture>
 </p>
 
 <p align="center">
   <img src="agent-activity/halo-wagner-fill.png" width="240" height="240" alt="Wagner" />&nbsp;&nbsp;<picture>
-    <source media="(prefers-color-scheme: dark)" srcset="agent-activity/mephistos-wagner-26w-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="agent-activity/mephistos-wagner-26w-light.svg" />
-    <img src="agent-activity/mephistos-wagner-26w-light.svg" width="550" height="240" alt="Wagner activity over the last 26 weeks" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mephistopheles4/mephistopheles4/generated/agent-activity/mephistos-wagner-26w-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/mephistopheles4/mephistopheles4/generated/agent-activity/mephistos-wagner-26w-light.svg" />
+    <img src="https://raw.githubusercontent.com/mephistopheles4/mephistopheles4/generated/agent-activity/mephistos-wagner-26w-light.svg" width="550" height="240" alt="Wagner activity over the last 26 weeks" />
   </picture>
 </p>
 
