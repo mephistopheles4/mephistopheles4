@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
 
       - name: Setup Node.js
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
@@ -61,7 +63,17 @@ jobs:
           }
           trap cleanup EXIT HUP INT TERM
           node .lynceus-tool/bin/lynceus.mjs build --config "$LYNCEUS_CONFIG_PATH" --out-dir "$OUT_DIR" --public-only
-          SYMREF_OUT=$(git ls-remote --symref origin HEAD)
+          [ -n "$GITHUB_TOKEN" ] || { printf '%s\n' "GITHUB_TOKEN is empty" >&2; exit 1; }
+          BASIC_CREDS=$(printf 'x-access-token:%s' "$GITHUB_TOKEN" | base64 | tr -d '\n')
+          printf '::add-mask::%s\n' "$BASIC_CREDS"
+          AUTH_HEADER="AUTHORIZATION: basic $BASIC_CREDS"
+          git_auth() {
+            GIT_CONFIG_COUNT=1 \
+            GIT_CONFIG_KEY_0='http.https://github.com/.extraheader' \
+            GIT_CONFIG_VALUE_0="$AUTH_HEADER" \
+            git "$@"
+          }
+          SYMREF_OUT=$(git_auth ls-remote --symref origin HEAD)
           DEFAULT_BRANCH=$(printf '%s\n' "$SYMREF_OUT" | sed -n 's/^ref: refs\/heads\/\([^[:space:]]*\)[[:space:]]*HEAD$/\1/p' | head -n 1)
           [ -n "$DEFAULT_BRANCH" ] || { printf '%s\n' "Could not resolve remote default branch" >&2; exit 1; }
           DEFAULT_LOWER=$(printf '%s' "$DEFAULT_BRANCH" | tr '[:upper:]' '[:lower:]')
@@ -71,10 +83,9 @@ jobs:
             exit 1
           fi
           BRANCH_REF="refs/heads/$LYNCEUS_BRANCH"
-          HEADS_OUT=$(git ls-remote --heads origin "$BRANCH_REF")
+          HEADS_OUT=$(git_auth ls-remote --heads origin "$BRANCH_REF")
           OLD_SHA=$(printf '%s\n' "$HEADS_OUT" | awk '{print $1; exit}')
           ORIGIN_URL=$(git remote get-url origin)
-          AUTH_HEADER="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$GITHUB_TOKEN" | base64 | tr -d '\n')"
           git -C "$STAGE_DIR" init -q
           git -C "$STAGE_DIR" remote add origin "$ORIGIN_URL"
           if [ -n "$LYNCEUS_SUBPATH" ]; then
@@ -97,10 +108,7 @@ jobs:
           fi
           NEW_TREE=$(git -C "$STAGE_DIR" write-tree)
           if [ -n "$OLD_SHA" ]; then
-            GIT_CONFIG_COUNT=1 \
-            GIT_CONFIG_KEY_0='http.https://github.com/.extraheader' \
-            GIT_CONFIG_VALUE_0="$AUTH_HEADER" \
-            git -C "$STAGE_DIR" fetch --depth=1 origin "$BRANCH_REF"
+            git_auth -C "$STAGE_DIR" fetch --depth=1 origin "$BRANCH_REF"
             OLD_TREE=$(git -C "$STAGE_DIR" rev-parse 'FETCH_HEAD^{tree}' 2>/dev/null || true)
             if [ "$OLD_TREE" = "$NEW_TREE" ]; then
               exit 0
@@ -110,13 +118,7 @@ jobs:
           COMMIT_SHA=$(GIT_AUTHOR_NAME="$LYNCEUS_GIT_NAME" GIT_AUTHOR_EMAIL="$LYNCEUS_GIT_EMAIL" GIT_AUTHOR_DATE="$UTC_NOW" GIT_COMMITTER_NAME="$LYNCEUS_GIT_NAME" GIT_COMMITTER_EMAIL="$LYNCEUS_GIT_EMAIL" GIT_COMMITTER_DATE="$UTC_NOW" git -C "$STAGE_DIR" -c "user.name=$LYNCEUS_GIT_NAME" -c "user.email=$LYNCEUS_GIT_EMAIL" -c commit.gpgsign=false -c tag.gpgsign=false commit-tree "$NEW_TREE" -m 'Update Lynceus bot activity SVGs')
           git -C "$STAGE_DIR" update-ref HEAD "$COMMIT_SHA"
           if [ -n "$OLD_SHA" ]; then
-            GIT_CONFIG_COUNT=1 \
-            GIT_CONFIG_KEY_0='http.https://github.com/.extraheader' \
-            GIT_CONFIG_VALUE_0="$AUTH_HEADER" \
-            git -C "$STAGE_DIR" push "--force-with-lease=$BRANCH_REF:$OLD_SHA" origin "HEAD:$BRANCH_REF"
+            git_auth -C "$STAGE_DIR" push "--force-with-lease=$BRANCH_REF:$OLD_SHA" origin "HEAD:$BRANCH_REF"
           else
-            GIT_CONFIG_COUNT=1 \
-            GIT_CONFIG_KEY_0='http.https://github.com/.extraheader' \
-            GIT_CONFIG_VALUE_0="$AUTH_HEADER" \
-            git -C "$STAGE_DIR" push origin "HEAD:$BRANCH_REF"
+            git_auth -C "$STAGE_DIR" push origin "HEAD:$BRANCH_REF"
           fi
