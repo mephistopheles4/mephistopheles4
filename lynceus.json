@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "owner": "mephistopheles4",
+  "scopeType": "user",
+  "includePrivate": false,
+  "windowWeeks": 26,
+  "layout": "separate",
+  "detail": "breakdown",
+  "markStyle": "squares",
+  "labelMode": "friendly",
+  "branch": "generated",
+  "subpath": "agent-activity",
+  "markdownBase": "raw",
+  "metrics": {
+    "prsOpened": true,
+    "prsMerged": true,
+    "commits": true,
+    "reviews": true,
+    "comments": true,
+    "issues": true
+  },
+  "agents": [
+    {
+      "slug": "mephistos-homunculus[bot]",
+      "label": "Homunculus",
+      "ramp": "amber"
+    },
+    {
+      "slug": "mephistos-euphorion[bot]",
+      "label": "Euphorion",
+      "ramp": "cobalt"
+    },
+    {
+      "slug": "mephistos-wagner[bot]",
+      "label": "Wagner",
+      "ramp": "teal"
+    }
+  ]
+}
